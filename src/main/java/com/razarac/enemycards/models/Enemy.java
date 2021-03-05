@@ -6,6 +6,8 @@ import javax.validation.constraints.*;
 
 import com.razarac.enemycards.models.enums.EnemyElement;
 
+import org.hibernate.validator.constraints.URL;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,17 +15,19 @@ import lombok.Setter;
 @Getter @Setter 
 public class Enemy {
 
-    @NotNull("Enemy id is required")
+    @NotNull(message="Enemy id is required")
     private @Setter(AccessLevel.PROTECTED) Long id;
 
-    @NotNull("Enemy name is required")
+    @NotNull(message="Enemy name is required")
     private String name;
-    @NotNull("Enemy weaknesses are required")
+    @NotNull(message="Enemy weaknesses are required")
     private List<EnemyElement> weaknesses;
-    @NotNull("Enemy resistances are required")
+    @NotNull(message="Enemy resistances are required")
     private List<EnemyElement> resistances;
     
+    @URL(protocol = "http")
     private String image;
+    
     private String description;
 
     public Enemy(Long id, String name, List<EnemyElement> weaknesses, List<EnemyElement> resistances, String image, String description) {
