@@ -24,13 +24,15 @@ public class Enemy {
     private List<EnemyElement> weaknesses;
     @NotNull(message="Enemy resistances are required")
     private List<EnemyElement> resistances;
+    @NotNull(message="Enemy immunities are required")
+    private List<EnemyElement> immunities;
     
     @URL(protocol = "http")
     private String image;
     
     private String description;
 
-    public Enemy(Long id, String name, List<EnemyElement> weaknesses, List<EnemyElement> resistances, String image, String description) {
+    public Enemy(Long id, String name, List<EnemyElement> weaknesses, List<EnemyElement> resistances, List<EnemyElement> immunities, String image, String description) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -38,5 +40,6 @@ public class Enemy {
 
         this.weaknesses = weaknesses;
         this.resistances = resistances;
+        this.immunities = immunities;
     }
 }
