@@ -8,7 +8,6 @@ import com.razarac.enemycards.models.enums.EnemyElement;
 
 import org.hibernate.validator.constraints.URL;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +15,7 @@ import lombok.Setter;
 public class Enemy {
 
     @NotNull(message="Enemy id is required")
-    private @Setter(AccessLevel.PROTECTED) Long id;
+    private Long id;
 
     @NotNull(message="Enemy name is required")
     private String name;
