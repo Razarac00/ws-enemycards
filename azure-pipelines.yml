@@ -29,12 +29,8 @@ stages:
         jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
-        tasks: 'build'
-      displayName: 'Setup Gradle'
-
-    - script: |
-        ./gradlew clean build
-      displayName: 'gradle clean and build'
+        tasks: 'clean build'
+      displayName: 'Setup Gradle clean and build'
 
 - stage: 'test'
   condition: succeeded()
@@ -54,9 +50,5 @@ stages:
         jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
-        tasks: 'build'
-      displayName: 'Install gradle testing'
-
-    - script: |
-        ./gradlew test
-      displayName: 'gradle install and test'
+        tasks: 'build test'
+      displayName: 'Setup Gradle build and test'
