@@ -19,18 +19,18 @@ stages:
     condition: succeeded()
     displayName: 'install and build'
     steps:
-    - task: Gradle@2
-      inputs:
-        workingDirectory: ''
-        gradleWrapperFile: 'gradlew'
-        gradleOptions: '-Xmx3072m'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.11'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: true
-        testResultsFiles: '**/TEST-*.xml'
-        tasks: 'build'
-      displayName: 'Setup Gradle'
+    # - task: Gradle@2
+    #   inputs:
+    #     workingDirectory: ''
+    #     gradleWrapperFile: 'gradlew'
+    #     gradleOptions: '-Xmx3072m'
+    #     javaHomeOption: 'JDKVersion'
+    #     jdkVersionOption: '1.11'
+    #     jdkArchitectureOption: 'x64'
+    #     publishJUnitResults: true
+    #     testResultsFiles: '**/TEST-*.xml'
+    #     tasks: 'clean build'
+    #   displayName: 'Setup Gradle clean and build'
 
     - script: |
         ./gradlew clean build
@@ -54,8 +54,8 @@ stages:
         jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
-        tasks: 'build'
-      displayName: 'Install gradle testing'
+        tasks: 'build test'
+      displayName: 'Setup Gradle build and testing'
 
     - script: |
         ./gradlew test

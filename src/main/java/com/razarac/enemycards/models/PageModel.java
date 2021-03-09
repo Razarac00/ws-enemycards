@@ -32,4 +32,7 @@ public class PageModel {
         this.hasNext = hasNext;
         this.hasPrevious = hasPrevious;
     }
+
+    public PageModel() {
+    }
 }
