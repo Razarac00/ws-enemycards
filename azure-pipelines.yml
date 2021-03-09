@@ -17,7 +17,7 @@ stages:
   jobs:
   - job:
     condition: succeeded()
-    displayName: 'WS clean and build'
+    displayName: 'clean and build'
     steps:
     - task: Gradle@2
       inputs:
@@ -38,7 +38,7 @@ stages:
   jobs:
   - job:
     condition: succeeded()
-    displayName: 'WS test run'
+    displayName: 'test run'
     steps:
     - task: Gradle@2
       inputs:
