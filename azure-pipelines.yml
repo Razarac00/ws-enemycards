@@ -32,10 +32,6 @@ stages:
         tasks: 'clean build'
       displayName: 'Setup Gradle clean and build'
 
-    # - script: |
-    #     ./gradlew clean build
-    #   displayName: 'gradle clean and build'
-
 - stage: 'test'
   condition: succeeded()
   displayName: 'test-ws'
@@ -56,7 +52,3 @@ stages:
         testResultsFiles: '**/TEST-*.xml'
         tasks: 'build test'
       displayName: 'Setup Gradle build and testing'
-
-    # - script: |
-    #     ./gradlew test
-    #   displayName: 'gradle install and test'
