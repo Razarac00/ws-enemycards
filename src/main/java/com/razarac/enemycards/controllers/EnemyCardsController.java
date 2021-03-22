@@ -21,8 +21,8 @@ public class EnemyCardsController {
         return enemyCardsServiceClient.getEnemies(pageNumber, pageSize, search);
     }
 
-    @GetMapping("/enemies/{id}")
-    public Enemy getEnemy(@PathVariable("id") Long id) {
-        return enemyCardsServiceClient.getEnemy(id);
+    @GetMapping("/enemies/{name}")
+    public Enemy getEnemy(@PathVariable("name") String name) {
+        return enemyCardsServiceClient.getEnemy(name);
     }
 }
