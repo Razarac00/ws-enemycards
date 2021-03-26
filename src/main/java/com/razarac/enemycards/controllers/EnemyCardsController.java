@@ -18,6 +18,9 @@ public class EnemyCardsController {
                         @RequestParam("pageNumber") Integer pageNumber, 
                         @RequestParam("pageSize") Integer pageSize, 
                         @RequestParam(value = "search", required = false) String search) {
+        if (search == null) {
+            search = "";
+        }
         return enemyCardsServiceClient.getEnemies(pageNumber, pageSize, search);
     }
 
