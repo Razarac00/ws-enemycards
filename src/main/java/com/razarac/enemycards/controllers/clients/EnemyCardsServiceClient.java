@@ -11,9 +11,9 @@ public interface EnemyCardsServiceClient {
     
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/enemies/{id}"
+        value = "/enemies/{name}"
     )
-    Enemy getEnemy(@PathVariable("id") Long id);
+    Enemy getEnemy(@PathVariable("name") String name);
 
     @RequestMapping(
         method = RequestMethod.GET,

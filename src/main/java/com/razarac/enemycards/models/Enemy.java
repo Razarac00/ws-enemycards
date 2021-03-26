@@ -6,10 +6,11 @@ import javax.validation.constraints.*;
 
 import org.hibernate.validator.constraints.URL;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter 
+@Getter @Setter @Builder
 public class Enemy {
 
     @NotNull(message = "Enemy id is required")
@@ -40,4 +41,6 @@ public class Enemy {
         this.resistances = resistances;
         this.immunities = immunities;
     }
+
+    public Enemy() {}
 }

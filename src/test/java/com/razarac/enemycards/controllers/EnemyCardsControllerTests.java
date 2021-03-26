@@ -75,8 +75,8 @@ public class EnemyCardsControllerTests {
         Enemy expected = new Enemy(id, name, weaknesses, resistances, immunities, image, description);
 
         // Act
-        Mockito.when(enemyCardsServiceClient.getEnemy(id)).thenReturn(expected);
-        Enemy actual = enemyCardsController.getEnemy(id);
+        Mockito.when(enemyCardsServiceClient.getEnemy(name)).thenReturn(expected);
+        Enemy actual = enemyCardsController.getEnemy(name);
 
         // Assert
         assertEquals(expected, actual);

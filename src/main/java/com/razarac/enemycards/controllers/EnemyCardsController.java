@@ -18,11 +18,14 @@ public class EnemyCardsController {
                         @RequestParam("pageNumber") Integer pageNumber, 
                         @RequestParam("pageSize") Integer pageSize, 
                         @RequestParam(value = "search", required = false) String search) {
+        if (search == null) {
+            search = "";
+        }
         return enemyCardsServiceClient.getEnemies(pageNumber, pageSize, search);
     }
 
-    @GetMapping("/enemies/{id}")
-    public Enemy getEnemy(@PathVariable("id") Long id) {
-        return enemyCardsServiceClient.getEnemy(id);
+    @GetMapping("/enemies/{name}")
+    public Enemy getEnemy(@PathVariable("name") String name) {
+        return enemyCardsServiceClient.getEnemy(name);
     }
 }
