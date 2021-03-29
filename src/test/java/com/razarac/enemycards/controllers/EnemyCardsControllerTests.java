@@ -52,8 +52,8 @@ public class EnemyCardsControllerTests {
         String search = "";
 
         // Act
-        Mockito.when(enemyCardsServiceClient.getEnemies(pageNumber, pageSize, search)).thenReturn(expected);
-        PageModel actual = enemyCardsController.getEnemies(pageNumber, pageSize, search);
+        Mockito.when(enemyCardsServiceClient.getEnemies(search, pageNumber, pageSize)).thenReturn(expected);
+        PageModel actual = enemyCardsController.getEnemies(search, pageNumber, pageSize);
 
         // Assert
         assertEquals(expected, actual);

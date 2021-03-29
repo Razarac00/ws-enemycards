@@ -15,14 +15,11 @@ public interface EnemyCardsServiceClient {
     )
     Enemy getEnemy(@PathVariable("name") String name);
 
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/enemies?pageNumber={pageNumber}&pageSize={pageSize}&search={search}"
-    )
+    @GetMapping("/enemies")
     PageModel getEnemies(
+                @RequestParam(value = "search", required = false) String search,
                 @RequestParam("pageNumber") Integer pageNumber, 
-                @RequestParam("pageSize") Integer pageSize, 
-                @RequestParam(value = "search", required = false) String search
+                @RequestParam("pageSize") Integer pageSize
                 );
     
 }

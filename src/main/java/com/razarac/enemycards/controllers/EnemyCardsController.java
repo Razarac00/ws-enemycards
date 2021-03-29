@@ -15,13 +15,14 @@ public class EnemyCardsController {
 
     @GetMapping("/enemies")
     public PageModel getEnemies(
+                        @RequestParam(value = "search", required = false) String search,
                         @RequestParam("pageNumber") Integer pageNumber, 
-                        @RequestParam("pageSize") Integer pageSize, 
-                        @RequestParam(value = "search", required = false) String search) {
+                        @RequestParam("pageSize") Integer pageSize
+                        ) {
         if (search == null) {
             search = "";
         }
-        return enemyCardsServiceClient.getEnemies(pageNumber, pageSize, search);
+        return enemyCardsServiceClient.getEnemies(search, pageNumber, pageSize);
     }
 
     @GetMapping("/enemies/{name}")
