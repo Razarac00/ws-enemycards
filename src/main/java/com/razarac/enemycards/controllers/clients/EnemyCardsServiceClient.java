@@ -17,12 +17,12 @@ public interface EnemyCardsServiceClient {
 
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/enemies?pageNumber={pageNumber}&pageSize={pageSize}&search={search}"
+        value = "/enemies?search={search}&pageNumber={pageNumber}&pageSize={pageSize}"
     )
     PageModel getEnemies(
+                @RequestParam(value = "search", required = false) String search,
                 @RequestParam("pageNumber") Integer pageNumber, 
-                @RequestParam("pageSize") Integer pageSize, 
-                @RequestParam(value = "search", required = false) String search
+                @RequestParam("pageSize") Integer pageSize
                 );
     
 }
