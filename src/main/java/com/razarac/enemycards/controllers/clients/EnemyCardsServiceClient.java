@@ -15,10 +15,7 @@ public interface EnemyCardsServiceClient {
     )
     Enemy getEnemy(@PathVariable("name") String name);
 
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/enemies?search={search}&pageNumber={pageNumber}&pageSize={pageSize}"
-    )
+    @GetMapping("/enemies")
     PageModel getEnemies(
                 @RequestParam(value = "search", required = false) String search,
                 @RequestParam("pageNumber") Integer pageNumber, 
